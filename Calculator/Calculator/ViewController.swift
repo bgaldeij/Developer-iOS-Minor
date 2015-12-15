@@ -121,7 +121,7 @@ class ViewController: UIViewController
         currentNumberHasADot = false
         addToHistory("\(displayValue)")
         
-        if let result = brain.pushOperand(displayValue)
+        if let result = brain.pushOperand(displayValue!)
         {
             displayValue = result
         }
@@ -131,15 +131,46 @@ class ViewController: UIViewController
         }
     }
     
-    var displayValue : Double
+    @IBAction func setInMemory(sender: UIButton)
+    {
+        if displayValue != nil
+        {
+            brain.setVariable("M", value: displayValue!)
+            userIsTypingANumber = false
+            
+        }
+    }
+    
+    
+    @IBAction func getFromMemory(sender: UIButton)
+    {
+        brain.pushOperand("M")
+    }
+    
+    var displayValue : Double?
     {
         get
         {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if let result = NSNumberFormatter().numberFromString(display.text!)?.doubleValue
+            {
+                return result
+            }
+            else
+            {
+                return nil
+            }
         }
         set
         {
-            display.text = "\(newValue)"
+            if newValue != nil
+            {
+                display.text = "\(newValue!)"
+            }
+            else
+            {
+                display.text = ""
+            }
+            
             userIsTypingANumber = false
         }
     }

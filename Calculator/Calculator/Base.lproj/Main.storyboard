@@ -32,6 +32,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzq-yO-oaA">
                                 <rect key="frame" x="120" y="72" width="84" height="70"/>
                                 <animations/>
+                                <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="getFromMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Drj-ap-cIG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VP-cg-me4">
                                 <rect key="frame" x="28" y="72" width="84" height="70"/>
@@ -39,11 +43,15 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="LtB-mS-UgG"/>
                                 </constraints>
+                                <state key="normal" title="→M"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LtB-mS-UgG"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="setInMemory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxi-hR-UFu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8j-Aq-pTx">
                                 <rect key="frame" x="304" y="72" width="84" height="70"/>
@@ -63,14 +71,6 @@
                                 <state key="normal" title="9"/>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HgK-dI-x5S"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-Vu-UiQ">
-                                <rect key="frame" x="120" y="150" width="84" height="70"/>
-                                <animations/>
-                                <state key="normal" title="8"/>
-                                <connections>
-                                    <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ke8-zF-kUf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ss1-eU-cYg">
@@ -264,6 +264,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-Vu-UiQ">
+                                <rect key="frame" x="120" y="150" width="84" height="70"/>
+                                <animations/>
+                                <state key="normal" title="8"/>
+                                <connections>
+                                    <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ke8-zF-kUf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -467,6 +475,7 @@
                             <constraint firstItem="PWj-e7-DM6" firstAttribute="top" secondItem="7ld-Tm-wli" secondAttribute="bottom" constant="8" id="onk-Yg-Spc"/>
                             <constraint firstItem="HYb-Z5-IbI" firstAttribute="leading" secondItem="xXc-XA-i3S" secondAttribute="trailing" constant="8" id="p4z-WN-ns6"/>
                             <constraint firstItem="AFR-iU-MhY" firstAttribute="width" secondItem="9VP-cg-me4" secondAttribute="width" id="pNf-3d-KL6"/>
+                            <constraint firstItem="Ngx-9v-b0Y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="phM-aO-01v"/>
                             <constraint firstItem="9wl-GN-Es7" firstAttribute="top" secondItem="Ngx-9v-b0Y" secondAttribute="top" constant="8" id="qej-h3-Fdy"/>
                             <constraint firstItem="x2l-5V-s1B" firstAttribute="height" secondItem="9VP-cg-me4" secondAttribute="height" id="ruC-y6-c09"/>
                             <constraint firstItem="cyk-7h-E3L" firstAttribute="leading" secondItem="AFR-iU-MhY" secondAttribute="trailing" constant="8" id="s7A-nC-IIw"/>
@@ -507,31 +516,32 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="JSl-2m-pxW"/>
+                                <exclude reference="aem-al-Jk8"/>
                                 <exclude reference="KPR-nf-zdF"/>
                                 <exclude reference="UOb-aw-hi9"/>
                                 <exclude reference="Xos-g1-Kvs"/>
                                 <exclude reference="fUQ-Hp-bjp"/>
                                 <exclude reference="KOd-W8-RIt"/>
                                 <exclude reference="eU9-sD-HgW"/>
-                                <exclude reference="Dft-1o-a7h"/>
-                                <exclude reference="qej-h3-Fdy"/>
                                 <exclude reference="AbI-MH-CK1"/>
                                 <exclude reference="iqm-UM-BmC"/>
-                                <exclude reference="6Oq-29-APb"/>
-                                <exclude reference="akW-dA-jSv"/>
                                 <exclude reference="5wa-4v-oXz"/>
                                 <exclude reference="890-2M-RrP"/>
                                 <exclude reference="gFY-Bx-alC"/>
-                                <exclude reference="7G0-dM-EtY"/>
-                                <exclude reference="aBi-uy-aJJ"/>
+                                <exclude reference="Dft-1o-a7h"/>
+                                <exclude reference="qej-h3-Fdy"/>
                                 <exclude reference="cDT-K0-Eqv"/>
+                                <exclude reference="6Oq-29-APb"/>
+                                <exclude reference="akW-dA-jSv"/>
                                 <exclude reference="eOX-Wj-WtU"/>
                                 <exclude reference="s8X-6q-rrw"/>
-                                <exclude reference="w3t-qA-KqL"/>
+                                <exclude reference="7G0-dM-EtY"/>
+                                <exclude reference="aBi-uy-aJJ"/>
                                 <exclude reference="762-q2-ger"/>
                                 <exclude reference="VLd-VP-zkh"/>
-                                <exclude reference="aC4-Gb-S9C"/>
+                                <exclude reference="w3t-qA-KqL"/>
                                 <exclude reference="Zs8-fb-3nq"/>
+                                <exclude reference="aC4-Gb-S9C"/>
                             </mask>
                         </variation>
                     </view>

@@ -13,6 +13,7 @@ class CalculatorBrain
     private enum Op: CustomStringConvertible
     {
         case Operand(Double)
+        case Variable(String)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -28,6 +29,8 @@ class CalculatorBrain
                     return symbol
                 case .BinaryOperation(let symbol, _):
                     return symbol
+                case.Variable(let variable):
+                    return variable
                 }
             }
         }
@@ -36,6 +39,8 @@ class CalculatorBrain
     private var opStack = [Op]()
     
     private var knownOps = Dictionary<String, Op>()
+    
+    var variableValues = Dictionary<String, Double>()
     
     init()
     {
@@ -83,7 +88,11 @@ class CalculatorBrain
                         return (operation(operand1, operand2), op2Evaluation.remainingOps)
                     }
                 }
-                
+            case .Variable(let variable):
+                if let variableValue = variableValues[variable]
+                {
+                    return (variableValue, remainingOps)
+                }
             }
         }
         
@@ -103,6 +112,19 @@ class CalculatorBrain
         return evaluate()
     }
     
+    func pushOperand(symbol: String) -> Double?
+    {
+        if variableValues.keys.contains(symbol)
+        {
+            opStack.append(Op.Variable(symbol))
+            return evaluate()
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
     func performOperation(symbol: String) -> Double?
     {
         if let operation = knownOps[symbol]
@@ -115,5 +137,12 @@ class CalculatorBrain
     func clear()
     {
         opStack.removeAll()
+        variableValues.removeAll()
+    }
+    
+    func setVariable(symbol: String, value: Double)
+    {
+        variableValues[symbol] = value
+        evaluate()
     }
 }
