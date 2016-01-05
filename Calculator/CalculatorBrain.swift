@@ -99,10 +99,9 @@ class CalculatorBrain
         return (nil, ops)
     }
     
-    private func evaluate() -> Double?
+    func evaluate() -> Double?
     {
-        let (result, remainder) = evaluate(opStack)
-        print("remainder: \(remainder)")
+        let (result, _) = evaluate(opStack)
         return result
     }
     
@@ -143,6 +142,5 @@ class CalculatorBrain
     func setVariable(symbol: String, value: Double)
     {
         variableValues[symbol] = value
-        evaluate()
     }
 }

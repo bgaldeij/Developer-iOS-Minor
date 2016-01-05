@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  Calculator
 //
 //  Created by Student on 25/11/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class CalculatorViewController: UIViewController
 {
     
     @IBOutlet weak var display: UILabel!
@@ -173,6 +173,14 @@ class ViewController: UIViewController
             
             userIsTypingANumber = false
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+//        if let gvc = segue.destinationViewController as? GraphViewController
+//        {
+//            //graph
+//        }
     }
 
 }
