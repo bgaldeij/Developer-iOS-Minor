@@ -42,14 +42,17 @@ class CalculatorViewController: UIViewController
         brain.clear()
     }
     
-    func addToHistory (addition: String)
+    func addToHistory (addition: String?)
     {
         if history.text! == "History"
         {
             history.text = ""
         }
        
-        history.text = history.text! + addition + " "
+        if addition != nil
+        {
+            history.text = history.text! + addition! + " "
+        }
     }
     
     @IBAction func appendDot(sender: UIButton)
@@ -145,6 +148,7 @@ class CalculatorViewController: UIViewController
     @IBAction func getFromMemory(sender: UIButton)
     {
         brain.pushOperand("M")
+        displayValue = brain.getVariable("M")
     }
     
     var displayValue : Double?
@@ -174,14 +178,5 @@ class CalculatorViewController: UIViewController
             userIsTypingANumber = false
         }
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-//        if let gvc = segue.destinationViewController as? GraphViewController
-//        {
-//            //graph
-//        }
-    }
-
 }
 

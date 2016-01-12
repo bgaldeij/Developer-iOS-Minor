@@ -136,11 +136,22 @@ class CalculatorBrain
     func clear()
     {
         opStack.removeAll()
-        variableValues.removeAll()
     }
     
     func setVariable(symbol: String, value: Double)
     {
         variableValues[symbol] = value
+    }
+    
+    func getVariable(symbol: String) -> Double
+    {
+        if variableValues[symbol] != nil
+        {
+            return variableValues[symbol]!
+        }
+        else
+        {
+            return 0.0
+        }
     }
 }
