@@ -14,7 +14,7 @@
 		3F19C6F41C065165006D6FD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F19C6F21C065165006D6FD2 /* LaunchScreen.storyboard */; };
 		3F19C6FF1C065165006D6FD2 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C6FE1C065165006D6FD2 /* CalculatorTests.swift */; };
 		3F19C70A1C065166006D6FD2 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F19C7091C065166006D6FD2 /* CalculatorUITests.swift */; };
-		3F5DC92D1C348512003C6027 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DC92C1C348512003C6027 /* AxesDrawer.swift */; };
+		3F4AC0EE1C4D034600E177ED /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AC0ED1C4D034600E177ED /* AxesDrawer.swift */; };
 		3F5DC92F1C348B77003C6027 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DC92E1C348B77003C6027 /* GraphViewController.swift */; };
 		3F5DC9311C348BEF003C6027 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5DC9301C348BEF003C6027 /* GraphView.swift */; };
 		3FCC32581C072F3D00F71EE7 /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCC32571C072F3D00F71EE7 /* CalculatorBrain.swift */; };
@@ -51,7 +51,7 @@
 		3F19C7051C065166006D6FD2 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F19C7091C065166006D6FD2 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		3F19C70B1C065166006D6FD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F5DC92C1C348512003C6027 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AxesDrawer.swift; path = ../../../../Downloads/AxesDrawer.swift; sourceTree = "<group>"; };
+		3F4AC0ED1C4D034600E177ED /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = SOURCE_ROOT; };
 		3F5DC92E1C348B77003C6027 /* GraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphViewController.swift; path = ../GraphViewController.swift; sourceTree = "<group>"; };
 		3F5DC9301C348BEF003C6027 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = ../GraphView.swift; sourceTree = "<group>"; };
 		3FCC32571C072F3D00F71EE7 /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = SOURCE_ROOT; };
@@ -105,12 +105,12 @@
 		3F19C6E81C065165006D6FD2 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				3F4AC0ED1C4D034600E177ED /* AxesDrawer.swift */,
 				3F5DC92E1C348B77003C6027 /* GraphViewController.swift */,
 				3F5DC9301C348BEF003C6027 /* GraphView.swift */,
 				3FCC32571C072F3D00F71EE7 /* CalculatorBrain.swift */,
 				3F19C6E91C065165006D6FD2 /* AppDelegate.swift */,
 				3F19C6EB1C065165006D6FD2 /* CalculatorViewController.swift */,
-				3F5DC92C1C348512003C6027 /* AxesDrawer.swift */,
 				3F19C6ED1C065165006D6FD2 /* Main.storyboard */,
 				3F19C6F01C065165006D6FD2 /* Assets.xcassets */,
 				3F19C6F21C065165006D6FD2 /* LaunchScreen.storyboard */,
@@ -271,10 +271,10 @@
 			files = (
 				3FCC32581C072F3D00F71EE7 /* CalculatorBrain.swift in Sources */,
 				3F5DC92F1C348B77003C6027 /* GraphViewController.swift in Sources */,
-				3F5DC92D1C348512003C6027 /* AxesDrawer.swift in Sources */,
 				3F19C6EC1C065165006D6FD2 /* CalculatorViewController.swift in Sources */,
 				3F19C6EA1C065165006D6FD2 /* AppDelegate.swift in Sources */,
 				3F5DC9311C348BEF003C6027 /* GraphView.swift in Sources */,
+				3F4AC0EE1C4D034600E177ED /* AxesDrawer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
