@@ -178,5 +178,19 @@ class CalculatorViewController: UIViewController
             userIsTypingANumber = false
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if let detail = segue.destinationViewController as? GraphViewController
+        {
+            if let identifier = segue.identifier
+            {
+                if identifier == "Graph"
+                {
+                    detail.brain = brain
+                }
+            }
+        }
+    }
 }
 

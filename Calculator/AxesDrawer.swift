@@ -14,6 +14,8 @@ class AxesDrawer
         static let HashmarkSize: CGFloat = 6
     }
     
+    var lastPoint: CGPoint?
+    
     var brain : CalculatorBrain?
     
     var color = UIColor.blueColor()
@@ -98,8 +100,8 @@ class AxesDrawer
             formatter.maximumFractionDigits = Int(-log10(Double(unitsPerHashmark)))
             formatter.minimumIntegerDigits = 1
 
-            let yValue = cos((origin.x-0.0)/pointsPerUnit) * pointsPerHashmark
-            drawDot(CGPointMake(0.0, origin.y + yValue), origin: origin)
+            //let yValue = cos((origin.x-0.0)/pointsPerUnit) * pointsPerHashmark
+            //drawDot(CGPointMake(0.0, origin.y + yValue), origin: origin)
             
             // radiate the bbox out until the hashmarks are further out than the bounds
             while !CGRectContainsRect(bbox, bounds)
@@ -109,13 +111,35 @@ class AxesDrawer
                 let yMin = CGFloat.init(calculate(Double(Float((origin.x-bbox.minX)/pointsPerUnit)))) * pointsPerHashmark
                 if let point = alignedPoint(x: bbox.minX, y: origin.y + yMin, insideBounds: bounds)
                 {
-                    drawDot(point, origin: origin)
+                    if brain != nil
+                    {
+                        if lastPoint == nil
+                        {
+                            lastPoint = point
+                            //drawDot(point, origin: origin)
+                        }
+                        else
+                        {
+                            drawDot(point, origin: lastPoint!)
+                        }
+                    }
                 }
                 
                 let yMax = CGFloat.init(calculate(Double(Float((origin.x-bbox.maxX)/pointsPerUnit)))) * pointsPerHashmark
                 if let point = alignedPoint(x: bbox.maxX, y: origin.y + yMax, insideBounds: bounds)
                 {
-                    drawDot(point, origin: origin)
+                    if brain != nil
+                    {
+                        if lastPoint == nil
+                        {
+                            lastPoint = point
+                            //drawDot(point, origin: origin)
+                        }
+                        else
+                        {
+                            drawDot(point, origin: lastPoint!)
+                        }
+                    }
                 }
                 
                 if let leftHashmarkPoint = alignedPoint(x: bbox.minX, y: origin.y, insideBounds:bounds) {
@@ -210,10 +234,18 @@ class AxesDrawer
     
     private func calculate(value: Double) -> Double
     {
-        brain?.setVariable("M", value: value)
-        if let result = brain?.evaluate()
+        if brain != nil
         {
-            return result
+            brain?.setVariable("M", value: value)
+            let resultValue = brain?.evaluate()
+            if let result = resultValue
+            {
+                return result
+            }
+            else
+            {
+                return 0.0
+            }
         }
         else
         {
@@ -225,11 +257,13 @@ class AxesDrawer
     {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x: origin.x, y: origin.y))
-        path.addLineToPoint(CGPoint(x:location.x, y:location.y))
+        path.addLineToPoint(CGPoint(x: location.x, y: location.y))
         path.stroke()
         
+        lastPoint = location
+        
         var rect = CGRect()
-        rect.size = CGSizeMake(2.0, 2.0)
+        rect.size = CGSizeMake(3.0, 3.0)
         rect.offsetInPlace(dx: location.x, dy: location.y)
         CGContextAddEllipseInRect(UIGraphicsGetCurrentContext(), rect)
         CGContextFillPath(UIGraphicsGetCurrentContext())
